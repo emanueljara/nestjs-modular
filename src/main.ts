@@ -21,6 +21,6 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('doc', app, document);
   app.enableCors(); //es para habilitar que desde cualquier parte diferente al propio dominio del servidor, se pueda hacer la peticion
-  await app.listen(3000);
+  await app.listen(process.env.PORT || 3000);
 }
 bootstrap();
