@@ -12,11 +12,15 @@ import {
 import { CustomersService } from '../services/customers.service';
 import { CreateCustomerDto, UpdateCustomerDto } from '../dtos/customer.dto';
 
+import { ApiTags, ApiOperation } from '@nestjs/swagger';
+
+@ApiTags('Clientes')
 @Controller('customers')
 export class CustomerController {
   constructor(private customersService: CustomersService) {}
 
   @Get()
+  @ApiOperation({ summary: 'para obtener toda la lista de clientes' })
   findAll() {
     return this.customersService.findAll();
   }
